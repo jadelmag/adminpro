@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+#themecolors a {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.w150 {
+    width: 50%;
+}
