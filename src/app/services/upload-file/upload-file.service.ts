@@ -18,10 +18,10 @@ export class UploadFileService {
 
         if ( xhr.readyState === 4) {
           if ( xhr.status === 200 ) {
-            console.log('Upload image success');
+            // console.log('Upload image success');
             resolve( JSON.parse(xhr.response) );
           } else {
-            console.log('Upload image failed!');
+            // console.log('Upload image failed!');
             reject( JSON.parse(xhr.response) );
           }
         }

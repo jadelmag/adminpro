@@ -16,7 +16,6 @@ export class UserService {
   token: string;
 
   constructor( public http: HttpClient, public router: Router, public _uploadService: UploadFileService ) {
-    console.log('Http Service Ready!');
     this.loadStorage();
   }
 
@@ -72,15 +71,16 @@ export class UserService {
   }
 
   updateUser( user: User ) {
-    let url = URL_SERVICES + '/user/' + this.user._id;
+    let url = URL_SERVICES + '/user/' + user._id;
     url += '?token=' + this.token;
 
     return this.http.put( url, user )
       .map( (res: any) => {
 
+      if ( user._id === this.user._id) {
         const userDB: User = res.user;
-
         this.saveStorage( userDB._id, this.token, userDB );
+      }
 
         swal('User Updated', user.name, 'success');
         return true;
@@ -102,11 +102,24 @@ export class UserService {
       });
   }
 
+  loadUsers( from: number = 0) {
+    const url = URL_SERVICES + '/user?from=' + from;
+    return this.http.get(url);
+  }
 
+  searchUser( param: string ) {
+    const url = URL_SERVICES + '/search/collection/users/' + param;
+    return this.http.get(url).map( (res: any) => res.users );
+  }
 
-
-
-
+  removeUser( id: string ) {
+    let url = URL_SERVICES + '/user/' + id;
+    url += '?token=' + this.token;
+    return this.http.delete(url).map( resp => {
+      swal('User Removed', 'User has been removed successfully', 'success');
+      return true;
+    });
+  }
 
 
 
