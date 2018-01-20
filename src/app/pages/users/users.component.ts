@@ -49,8 +49,6 @@ export class UsersComponent implements OnInit {
 
     this.from += value;
     this.loadUsers();
-    console.log('paginación: ', this.from);
-    console.log('total: ', this.total);
   }
 
   searchUser( param: string ) {

@@ -34,7 +34,6 @@ export class ImagePipe implements PipeTransform {
         url += '/users/xxx';
         break;
     }
-
     return url;
   }
 

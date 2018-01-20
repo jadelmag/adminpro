@@ -1,0 +1,47 @@
+<div class="row animated fadeIn">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Doctor: {{ doctor.name }}</h3>
+            <p class="text-muted m-b-30 font-13">Edit Info Doctor</p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="saveDoctor(f)">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">User Name</label>
+                            <input [(ngModel)]="doctor.name" name="name" type="text" class="form-control" placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hospital</label>
+                            <select (change)="changeHospital( $event.target.value )" [(ngModel)]="doctor.hospital" name="hospital" class="form-control" required>
+                              <option value="">Select Hospital</option>
+                              <option *ngFor="let hospital of hospitals" [value]="hospital._id"> {{ hospital.name }}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                          <i class="fa fa-save"></i>
+                          Save
+                        </button>
+                        <button routerLink="/doctors" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card card-body">
+
+            <h4 class="box-title m-b-0">Hospital</h4>
+            <img [src]="hospital.img | image:'hospital'" class="rounded img-fluid">
+        </div>
+    </div>
+
+    <div class="col-md-3" *ngIf="doctor._id">
+        <div class="card card-body">
+
+            <h4 class="box-title m-b-0">Doctor</h4>
+            <img (click)="changePhoto()" [src]="doctor.img | image:'doctor'" class="img-circle img-fluid pointer">
+        </div>
+    </div>
+
+</div>
