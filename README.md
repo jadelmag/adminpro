@@ -3,11 +3,11 @@
 ## Proyecto de Gestión de Hospitales desarrollado con Angular
 ---
 
- * Versión 0.0.7
+ * Versión 0.0.8
 
- La versión 0.0.7 establece la conexión a la base de datos mediante mongoDB a través del [backend AdminPro](https://github.com/jadelmag/backend-server-admin-pro) realizado para este proyecto.
+ La versión 0.0.8 establece la conexión a la base de datos mediante mongoDB a través del [backend AdminPro](https://github.com/jadelmag/backend-server-admin-pro) realizado para este proyecto.
 
-La versión 0.0.7 cuenta con las siguientes funcionalidades:
+La versión 0.0.8 cuenta con las siguientes funcionalidades:
 
 - Autenticación con Google con una gestión personalizada del token.
 - Diferentes Servicios: Subir Archivos, Conexión a la BBDD, Guards, un apartado de ajustes donde el usuario puede modificar el css en tiempo de ejecución, etc...

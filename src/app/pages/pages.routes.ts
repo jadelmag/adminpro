@@ -15,6 +15,8 @@ import { UsersComponent } from './users/users.component';
 import { HospitalsComponent } from './hospitals/hospitals.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorComponent } from './doctors/doctor.component';
+import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../services/service.index';
 
 
 const pagesRoutes: Routes = [
@@ -32,7 +34,13 @@ const pagesRoutes: Routes = [
 
             // Managment
             { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
-            { path: 'users', component: UsersComponent, data: { title: 'Users' } },
+            { path: 'search/:param', component: SearchComponent, data: { title: 'Search' } },
+            {
+                path: 'users',
+                component: UsersComponent,
+                canActivate: [ AdminGuard ],
+                data: { title: 'Users' }
+            },
             { path: 'hospitals', component: HospitalsComponent, data: { title: 'Hospitals' } },
             { path: 'doctors', component: DoctorsComponent, data: { title: 'Doctors' } },
             { path: 'doctor/:id', component: DoctorComponent, data: { title: 'Update Doctor' } },
