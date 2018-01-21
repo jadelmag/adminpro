@@ -1,58 +1,69 @@
 # Admin Pro
-
-## Proyecto de Gestión de Hospitales desarrollado con Angular
 ---
 
- * Versión 0.0.8
+AdminPro es un proyecto desarrollado en Angular 5, el cual consiste en un gestor de Hospitales. Además, puede probarlo para aprender de una forma eficiente como estructurar los módulos, servicios, pipes de un proyecto grande. 
 
- La versión 0.0.8 establece la conexión a la base de datos mediante mongoDB a través del [backend AdminPro](https://github.com/jadelmag/backend-server-admin-pro) realizado para este proyecto.
+Este proyecto está estructurado por módulos agrupados por tareas específicas, manteniendo así una estructura organizada, legible y reutilizable.
 
-La versión 0.0.8 cuenta con las siguientes funcionalidades:
+Las páginas están ordenadas por módulos con sus rutas hijas y se cargan de forma independiente gracias al uso de Lazy Load y Guards para proteger y restringir el acceso a diferentes tipos de usuario, ya tengan permisos de administrador o no.
 
-- Autenticación con Google con una gestión personalizada del token.
-- Diferentes Servicios: Subir Archivos, Conexión a la BBDD, Guards, un apartado de ajustes donde el usuario puede modificar el css en tiempo de ejecución, etc...
-- Diferentes pipes
-- Variedad de Páginas
-
-## Instalación del proyecto
+## Características:
 ---
 
-El proyecto require la instalación de [Node.js](https://nodejs.org/) v6+ para funcionar.
++ Comunicación con un backend en Express con MongoDB.
++ Funciones CRUD, busquedas y subida de archivos.
++ Autenticación con Google Sig-in personalizado.
++ Rutas Hijas
++ @inputs, @Outputs, @ViewChild, atributos personalizados, etc...
++ Servicios básicos, temas, rutas básicas y persistencia de los ajustes.
++ Uso Observables y Promesas
++ Uso de Guards
++ Lazy Load
++ Pipes
++ Pages: Las páginas están ordenadas por módulos con sus rutas hijas y se cargan de forma independiente gracias al uso de Lazy Load.
+    + Autenticación Normal y mediante Google 
 
-Instalar las dependencias y levantar el servidor.
 
++ Services : Los servicios están organizados en un módulo y almacenados en un fichero index propio para los servicios.
+    - Servicio para Médicos
+    - Servicio para Usuarios
+    - Servicio para Hospitales
+    - Servicio para los diferentes Guards desarrollados
+        - Admin Guard
+        - Login Guard
+        - Auto renovar Token
+    - Servicio para subir archivos
+    - Servicio para opciones
+    - Servicio para el sidebar
+
+### Requisitos
+---
+
+Requisitos mínimos para montar el proyecto.
+
+| Requisitos| Versión |
+| --------- | ------- |
+| Angular CLI| 1.6.3|
+| Node| 6.11.3|
+| Angular| 5.1.3|
+
+
+### Instalación
+---
+
+AdminPro requiere [Node.js](https://nodejs.org/) v5+
+
+Instalar las dependencias y lanzarlo. 
 ```sh
 $ npm install
+$ ng serve -o
 ```
 
-Autor
+Si desea trabajar de forma completa debe de instalar ***MongoDB*** en el puerto 27017 y el backend propio en ***express*** en el puerto 8080.
+
+El repositorio del backend lo puede encontrar [aquí](https://github.com/jadelmag/backend-server-admin-pro).
+
+### Autor
 ---
+
 * [Javier Delgado Magdalena](http://www.linkedin.com/pub/javier-delgado-magdalena/33/9a1/226)
-
-# Info Adminpro
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
