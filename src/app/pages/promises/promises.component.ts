@@ -7,24 +7,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromisesComponent implements OnInit {
 
+  count: number;
+  message: string;
+  isRunning: boolean;
+
   constructor() {
-
-    let count = 0;
-
-    const promise = new Promise( (resolve, reject) => {
-      const interval = setInterval( () => {
-        count += 1;
-        console.log(count);
-        if (count === 3) { resolve(); clearInterval(interval); }
-      }, 1000);
-
-    });
-
-    promise.then( () => console.log('Finish!'))
-      .catch(error => console.log('Error: ', error));
+    this.count = 0;
+    this.message = '';
+    this.isRunning = false;
   }
 
   ngOnInit() {
   }
 
+  promiseExample() {
+
+    this.isRunning = true;
+    const promise = new Promise( (resolve, reject) => {
+      const interval = setInterval( () => {
+        this.count += 1;
+        console.log(this.count);
+
+        if (this.count === 5) {
+          resolve();
+          clearInterval(interval);
+        }
+      }, 1000);
+
+    });
+
+    promise.then( () => {
+      this.message = 'Finish!';
+      console.log('Finish!');
+    })
+    .catch(error => {
+      this.message = 'Error: ' + error;
+      console.log('Error: ', error);
+    });
+  }
+
+  clear() {
+    console.log('Hola');
+    this.count = 0;
+    this.message = '';
+    this.isRunning = false;
+  }
 }

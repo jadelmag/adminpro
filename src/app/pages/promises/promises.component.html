@@ -1,3 +1,48 @@
-<p>
-  promises works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="card-title">
+                    <h4>Promise API</h4>
+                    <hr>
+                    <p>In ES6 we have an alternative mechanism built into the language called a promise.</p>
+                    <p>A promise is a placeholder for a future value.</p>
+                    <p>It serves the same function as callbacks but has a nicer syntax and makes it easier to handle errors.</p>
+
+                    <h4>Example</h4>
+                    <hr>
+                    <p>Promise that execute the code</p>
+
+                    <p *ngIf="count < 5"> {{ count }}</p>
+                    <p *ngIf="count === 5"> {{ message }}</p>
+
+                    <button (click)="clear()" [disabled]="!isRunning" class="btn btn-primary float-left" style="margin-right: 10px;"> Clear</button>
+                    <button (click)="promiseExample()" [disabled]="isRunning" class="btn btn-primary float-left"> Start Promise Execution</button>
+
+                    <br><br><br>
+                    <h4>Creating a Promise</h4>
+                    <hr>
+                    <p>We create an instance of a promise by calling new on the Promise class, like so:</p>
+                    <p><var>var promise = new Promise((resolve, reject) => {{ '{' }} {{ '}' }});</var></p>
+                    <p>We pass to Promise an inner function that takes two arguments (resolve, reject).</p>
+                    <p>Since we are defining the function we can call these arguments whatever we want but the convention is to call them resolve and reject.</p>
+                    <p>resolve and reject are in fact functions themselves.</p>
+                    <p>Inside this inner function we perform our asynchronous processing and then when we are ready we call resolve(), like so:</p>
+                    <p>We pass to Promise an inner function that takes two arguments (resolve, reject).</p>
+                    <p>Since we are defining the function we can call these arguments whatever we want but the convention is to call them resolve and reject.</p>
+                    <p>resolve and reject are in fact functions themselves.</p>
+                    <p>Inside this inner function we perform our asynchronous processing and then when we are ready we call resolve(), like so:</p>
+                    <p><var>var promise = new Promise((resolve, reject) => {{ '{' }} setTimeout(() => {{ '{' }} console.log("Async Work Complete"); resolve(); {{ '}' }}, 1000); {{ '}' }});</var></p>
+                    <p>We usually return this promise from a function, like so:</p>
+                    <p><var>function doAsyncTask() {{ '{' }} var promise = new Promise((resolve, reject) => {{ '{' }} setTimeout(() => {{ '{' }} console.log("Async Work Complete"); resolve(); {{ '}' }}, 1000); {{ '}' }}); return promise; {{ '}' }}</var></p>
+                    <p>If there was an error in the async task then we call the reject() function like so:</p>
+                    <p><var>function doAsyncTask() {{ '{' }} var promise = new Promise((resolve, reject) => {{ '{' }} setTimeout(() => {{ '{' }} console.log("Async Work Complete"); if (error) {{ '{' }} reject(); {{ '}' }} else {{ '{' }} resolve(); {{ '}' }} {{ '}' }}, 1000); {{ '}' }}); return promise; {{ '}' }}</var></p>
+
+                    <p><a href="http://learnangular2.com/es6/promises">More info</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

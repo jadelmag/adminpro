@@ -10,8 +10,6 @@
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img [src]="user.img | image" alt="user" /><span class="hide-menu">{{ user.name }}</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a routerLinkActive="active" routerLink="/profile">My Profile </a></li>
-                        <li><a href="javascript:void()">My Balance</a></li>
-                        <li><a href="javascript:void()">Inbox</a></li>
                         <li><a routerLinkActive="active" routerLink="/settings">Account Setting</a></li>
                         <li><a (click)="_userService.logout()" class="pointer">Logout</a></li>
                     </ul>
@@ -26,9 +24,6 @@
                         <li *ngFor="let submenu of menu.submenu">
                             <a routerLinkActive="active" [routerLink]="[submenu.url]">{{ submenu.title }} </a>
                         </li>
-                        <!-- <li><a href="index2.html">Analytical</a></li>
-                        <li><a href="index3.html">Demographical</a></li>
-                        <li><a href="index4.html">Modern</a></li> -->
                     </ul>
                 </li>
 

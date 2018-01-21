@@ -1,3 +1,60 @@
-<p>
-  rxjs works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="card-title">
+
+                    <h4>Reactive Extensions</h4>
+                    <hr>
+                    <p>Reactive Extensions for JavaScript (RxJS) is a reactive streams library that allows you to work with asynchronous data streams. RxJS can be used both in the browser or in the server-side using Node.js.</p>
+                    <p>We are going to introduce RxJS basic concepts and how we can use them with AngularJS.</p>
+
+                    <h4>What exactly are asynchronous data streams?</h4>
+                    <hr>
+                    <p>Let’s take each word separately and put it into context.</p>
+
+                    <ul>
+                        <li>
+                            <p>Asynchronous, in JavaScript means we can call a function and register a callback to be notified when results are available, so we can continue with execution and avoid the Web Page from being unresponsive. This is used for
+                                ajax calls, DOM-events, Promises, WebWorkers and WebSockets.</p>
+                        </li>
+                        <li>
+                            <p>Data, raw information in the form of JavaScript data types as: Number, String, Objects (Arrays, Sets, Maps).</p>
+                        </li>
+                        <li>
+                            <p> Streams, sequences of data made available over time. As an example, opposed to Arrays you don’t need all the information to be present in order to start using them.</p>
+                        </li>
+                    </ul>
+
+                    <p>Asynchronous data streams are not new. They have been around since Unix systems, and come in different flavours and names: streams (Node.js), pipes (Unix) or async pipes (Angular 2).</p>
+
+                    <br><br>
+                    <h4>Observable sequences</h4>
+                    <hr>
+                    <p>In RxJS, you represent asynchronous data streams using observable sequences or also just called observables. Observables are very flexible and can be used using push or pull patterns.</p>
+                    <ul>
+                        <li>
+                            <p>When using the push pattern, we subscribe to the source stream and react to new data as soon as is made available (emitted).</p>
+                        </li>
+                        <li>
+                            <p>When using the pull pattern, we are using the same operations but synchronously. This happens when using Arrays, Generators or Iterables.</p>
+                        </li>
+                    </ul>
+
+                    <br>
+
+                    <h4>Example RxJs</h4>
+                    <hr>
+                    <p>Observable that execute the code</p>
+                    <p>{{ message }}</p>
+
+                    <button (click)="clear()" [disabled]="!isDone" class="btn btn-primary float-left" style="margin-right: 10px;"> Clear</button>
+                    <button (click)="initObservable()" [disabled]="isRunning" class="btn btn-primary float-left"> Start Promise Execution</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

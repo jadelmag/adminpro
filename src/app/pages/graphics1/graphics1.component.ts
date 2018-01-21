@@ -9,28 +9,28 @@ export class Graphics1Component implements OnInit {
 
   graficos: any = {
     'grafico1': {
-      'labels': ['Con Frijoles', 'Con Natilla', 'Con tocino'],
+      'labels': ['Android', 'iOS', 'Ionic'],
       'data':  [24, 30, 46],
       'type': 'doughnut',
-      'leyenda': 'El pan se come con'
+      'leyenda': 'You develop mobile apps with'
     },
     'grafico2': {
-      'labels': ['Hombres', 'Mujeres'],
+      'labels': ['Man', 'Woman'],
       'data':  [4500, 6000],
       'type': 'doughnut',
-      'leyenda': 'Entrevistados'
+      'leyenda': 'Users connected'
     },
     'grafico3': {
-      'labels': ['Si', 'No'],
+      'labels': ['Yes', 'No'],
       'data':  [95, 5],
       'type': 'doughnut',
-      'leyenda': '¿Le dan gases los frijoles?'
+      'leyenda': 'Do you like this project?'
     },
     'grafico4': {
-      'labels': ['No', 'Si'],
+      'labels': ['Yes', 'No'],
       'data':  [85, 15],
       'type': 'doughnut',
-      'leyenda': '¿Le importa que le den gases?'
+      'leyenda': 'Is usefull?'
     },
   };
 

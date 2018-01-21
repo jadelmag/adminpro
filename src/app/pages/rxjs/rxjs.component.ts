@@ -9,27 +9,50 @@ import { Observable, Subscription } from 'rxjs/Rx';
 })
 export class RxjsComponent implements OnInit, OnDestroy {
 
+  message: string;
+  isRunning: boolean;
+  isDone: boolean;
   subscription: Subscription;
 
-  constructor() { }
+  constructor() {
+    this.message = 'Ready...';
+    this.isRunning = false;
+    this.isDone = false;
+   }
 
   ngOnInit() {
-    this.subscription = this.returnObservable()
-    .subscribe(
-      num => console.log('Subs ', num ),
-      error => console.log('Error in observer: ', error),
-      () => console.log('Observer has finished')
-    );
   }
 
   ngOnDestroy() {
+    this.clear();
+  }
+
+  initObservable() {
+    this.subscription = this.returnObservable()
+    .subscribe(
+      num => {
+        this.message = 'Subs: ' + num;
+        console.log('Subs: ', num );
+      },
+      error => {
+        this.message = 'Error in observer: ' + error;
+        console.log('Error in observer: ', error);
+      },
+      () => {
+        this.message = 'Observer has finished!!';
+        console.log('Observer has finished');
+        this.isDone = true;
+      });
+  }
+
+  unsubscribe() {
     this.subscription.unsubscribe();
   }
 
   returnObservable(): Observable<any> {
 
     return new Observable( observer => {
-
+      this.isRunning = true;
       let count = 0;
 
       const interval = setInterval( () => {
@@ -42,10 +65,10 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
         observer.next( out );
 
-        // if ( count === 3) {
-        //   clearInterval( interval );
-        //   observer.complete();
-        // }
+        if ( count === 20) {
+          clearInterval( interval );
+          observer.complete();
+        }
 
         // if ( count === 2) {
         //   observer.error('crash!!');
@@ -61,11 +84,17 @@ export class RxjsComponent implements OnInit, OnDestroy {
     .filter( (value, index) => {
 
       if ( value % 2 === 1) {
-        return true;
-      } else {
         return false;
+      } else {
+        return true;
       }
     });
+  }
+
+  clear() {
+    this.message = 'Ready...';
+    this.isRunning = false;
+    this.isDone = false;
   }
 
 }
